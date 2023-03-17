@@ -9,8 +9,8 @@ export const config = {
     JS: 'leaflet.js',
     CSS: 'leaflet.css'
   },
-  LOCATIONS_ROWS: '.table-wrap:nth-of-type(1) tbody tr',
-  CONFIG_ROWS: '.table-wrap:nth-of-type(2) tbody tr',
+  LOCATIONS_ROWS: '.table-wrap:nth-of-type(1) > table > tbody tr',
+  CONFIG_ROWS: '.table-wrap:nth-of-type(2) > table > tbody tr',
   labels: {
     CLEAR_ROUTE: 'Clear Route',
     CALCULATE_ROUTE: 'Calculate Route'
