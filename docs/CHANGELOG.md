@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/easingthemes/confluence-map/compare/v1.0.0...v1.0.1) (2023-03-17)
+
+
+### Bug Fixes
+
+* update table selector ([440cc28](https://github.com/easingthemes/confluence-map/commit/440cc28285ce05c017d8bee09e0764875d8100f0))
+
 # 1.0.0 (2023-03-17)
 
 
