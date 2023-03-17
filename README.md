@@ -24,7 +24,7 @@ Table needs to have at least 3 columns:
 # Add HTML widget for a map with:
 ```
 <nc-map>NC</nc-map>
-<script type="module" src="https://unpkg.com/@draganfilipovic/confluence-map@1.0.0/src/index.js"></script>
+<script type="module" src="https://unpkg.com/@draganfilipovic/confluence-map"></script>
 ```
 
 # Add HTML widget for a route buttons with:
