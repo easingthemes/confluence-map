@@ -57,7 +57,7 @@ export class ConfigTable {
   }
 
   get config() {
-    const $configRow = this.elements.$configRows[0];
+    const $configRow = this.elements.$configRows[1];
     const $configColumns = $configRow.children;
     const defaultZoom = Number($configColumns?.[0]?.innerText);
     const initialCenter = $configColumns[1].innerText.split(',')
