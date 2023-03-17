@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/easingthemes/confluence-map/compare/v1.0.2...v1.0.3) (2023-03-17)
+
+
+### Bug Fixes
+
+* readme update ([c5e544e](https://github.com/easingthemes/confluence-map/commit/c5e544e9c9bfdf7b3cd8459f48355beb77139f78))
+
 ## [1.0.2](https://github.com/easingthemes/confluence-map/compare/v1.0.1...v1.0.2) (2023-03-17)
 
 
