@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix['node-version'] }}
       - name: Release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v3.4.0
         with:
           dry_run: true
           extra_plugins: |
