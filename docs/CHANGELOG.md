@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/easingthemes/confluence-map/compare/v1.2.1...v1.2.2) (2023-03-20)
+
+
+### Bug Fixes
+
+* get waypoints ([4707155](https://github.com/easingthemes/confluence-map/commit/470715512c19bfaa8bf45e21c5fc55eaf6e8d2e4))
+
 ## [1.2.1](https://github.com/easingthemes/confluence-map/compare/v1.2.0...v1.2.1) (2023-03-20)
 
 
