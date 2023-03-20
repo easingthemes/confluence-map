@@ -113,16 +113,22 @@ export class ConfigTable {
     }
   }
 
-  addEvents() {
-    this.tableData.map(({ $colLabel, $point, label, location }) => {
-      $point.addEventListener('click', () => {
-        const { id, active } = this.getPointData($point);
+  handleMutations(mutationList) {
+    mutationList.forEach(({ target, type, attributeName }) => {
+      if (type === 'attributes' && attributeName === 'class') {
+        const { id, active } = this.getPointData(target);
         NS.state = ({
           id,
-          label,
-          location,
           active
         });
+      }
+    });
+  }
+  addEvents() {
+    const observer = new MutationObserver(this.handleMutations);
+    this.tableData.map(({ $colLabel, $point, label, location }) => {
+      observer.observe($point, {
+        attributes: true
       });
 
       $colLabel.addEventListener('click', () => {
