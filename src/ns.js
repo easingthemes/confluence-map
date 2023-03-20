@@ -16,8 +16,13 @@ class NameSpace {
     return this._state;
   }
   set state({ id, label, location, active }) {
-    this._state[id] = this._state[id] || {}
-    this._state[id] = { label, location, active };
+    this._state[id] = this._state[id] || {};
+    this._state[id] = {
+      ...this._state[id],
+      ...label && { label },
+      ...location && { location },
+      ...(typeof active === 'boolean') && { active }
+    };
   }
 }
 
