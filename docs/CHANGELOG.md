@@ -1,3 +1,10 @@
+## [1.2.8](https://github.com/easingthemes/confluence-map/compare/v1.2.7...v1.2.8) (2023-03-20)
+
+
+### Bug Fixes
+
+* fix state ([450ce12](https://github.com/easingthemes/confluence-map/commit/450ce120b74f11c9c32c01b01dad043a62d8b55d))
+
 ## [1.2.7](https://github.com/easingthemes/confluence-map/compare/v1.2.6...v1.2.7) (2023-03-20)
 
 
