@@ -1,12 +1,12 @@
 import { LeafletMap } from './map.js';
 import { Dependencies } from './dependencies.js';
 import { renderStyle } from './style.js';
+import { NameSpace } from './ns.js';
 
 export class MapElement extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.leafletMap = new LeafletMap();
   }
 
   async connectedCallback() {
@@ -40,7 +40,11 @@ export class MapElement extends HTMLElement {
     const $map = this.shadowRoot.querySelector('#map');
     const dependencies = new Dependencies(this.shadowRoot);
     dependencies.load().then((data) => {
-      this.leafletMap.init($map);
+      // NS init
+      const NS = new NameSpace('NC_CONFLUENCE_MAP');
+      NS.L = window.L;
+      // Map init
+      const leafletMap = new LeafletMap($map, NS);
     });
   }
 
