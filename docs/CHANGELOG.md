@@ -1,3 +1,10 @@
+## [1.2.6](https://github.com/easingthemes/confluence-map/compare/v1.2.5...v1.2.6) (2023-03-20)
+
+
+### Bug Fixes
+
+* missing import fix ([0daf25e](https://github.com/easingthemes/confluence-map/commit/0daf25e3e221c7b9ff0181eae42e8a68defcb959))
+
 ## [1.2.5](https://github.com/easingthemes/confluence-map/compare/v1.2.4...v1.2.5) (2023-03-20)
 
 
