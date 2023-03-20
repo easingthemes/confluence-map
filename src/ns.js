@@ -1,5 +1,6 @@
 class NameSpace {
   constructor(name) {
+    this._center = [0, 0];
     this._state = {};
     this._config = {};
     window[name] = window[name] || this;
@@ -23,6 +24,27 @@ class NameSpace {
       ...location && { location },
       ...(typeof active === 'boolean') && { active }
     };
+
+    if (typeof active === 'boolean') {
+      this.updateCenter();
+    }
+  }
+
+  get center() {
+    return this._center;
+  }
+
+  updateCenter() {
+    const list = Object.values(this.state)
+      .map(({ location }) => location.map(l => Number(l)));
+    const size = list.length;
+    if (size === 1) {
+      return list;
+    }
+
+    this._center = list.reduce((acc, curr) => {
+      return [acc[0] + curr[0]/size, acc[1] + curr[1]/size]
+    }, [0, 0]);
   }
 }
 

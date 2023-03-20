@@ -21,7 +21,7 @@ export class RouteController {
     }
 
     this.multiRoutingControl = this.multiRoutingControl || {};
-    const center = this.getCenter();
+    const center = NS.center;
     const centerPoint = NS.L.latLng(center[0], center[1]);
     console.log({ centerPoint, waypoints });
     waypoints.forEach((point, i) => {
@@ -81,17 +81,8 @@ export class RouteController {
   }
 
   async zoomToCenter() {
-    const points = Object.values(NS.state).map(({ location }) => location);
+    const points = Object.values(NS.cen).map(({ location }) => location);
     await NS.map.fitBounds(points);
     return this.__sleep(300);
-  }
-
-  getCenter() {
-    const list = Object.values(NS.state)
-      .map(({ location }) => location.map(l => Number(l)));
-    const size = list.length;
-    return list.reduce((acc, curr) => {
-      return [acc[0] + curr[0]/size, acc[1] + curr[1]/size]
-    }, [0, 0]);
   }
 }

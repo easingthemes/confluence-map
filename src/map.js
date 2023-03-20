@@ -9,7 +9,7 @@ export class LeafletMap {
   init($map) {
     const map = this.initMap($map, NS.config.initialCenter, NS.config.defaultZoom);
     this.addTiles(map);
-    this.addMarkers(map, NS.state);
+    this.addMarkers(map, NS.state, NS.center);
 
     return map;
   }
@@ -28,12 +28,17 @@ export class LeafletMap {
     }).addTo(map);
   }
 
-  addMarkers(map, state) {
+  addMarkers(map, state, center) {
     NS.L.Icon.Default.imagePath = `${config.LEAFLET.PATH}/images/`;
     Object.values(state).forEach(({ location, label }) => {
-      const marker = NS.L.marker(location);
-      marker.bindPopup(label).openPopup();
-      marker.addTo(map);
-    })
+      this.addMarker(map, location, label);
+    });
+    this.addMarker(map, center, 'Center');
+  }
+
+  addMarker(map, location, label) {
+    const marker = NS.L.marker(location);
+    marker.bindPopup(label).openPopup();
+    marker.addTo(map);
   }
 }
