@@ -28,7 +28,7 @@ export class RouteButtons extends HTMLElement {
   async mount() {
     renderStyle(this.shadowRoot, `
     <style>
-    .button__calculate, .button__clear {
+    .nc__button {
       margin: 10px 0;
       background: #3572B0;
       color: #fff;
@@ -52,7 +52,7 @@ export class RouteButtons extends HTMLElement {
   renderButton(type) {
     const $button = document.createElement('button');
     $button.innerText = config.labels[`${type.toUpperCase()}_ROUTE`];
-    $button.classList.add(`button__${type}`);
+    $button.classList.add('nc__button', `button__${type}`);
     $button.addEventListener('click', (e) => {
       this.routeActions[type]();
     });
@@ -63,7 +63,7 @@ export class RouteButtons extends HTMLElement {
     return {
       calculate: () => this.RouteController.calculateRoute(this.points),
       clear: () => this.RouteController.removeRoutingControl(),
-      center: () => this.RouteController.addMultiRoutingControl(this.points)
+      center: () => this.RouteController.calculateMultiRoutes(this.points)
     }
   }
 }

@@ -18,7 +18,7 @@ export class RouteController {
     }).addTo(this.NS.map);
   }
 
-  async addMultiRoutingControl(waypoints, i = 0) {
+  async addMultiRoutingControl(waypoints) {
     if (this.routingControl !== null) {
       this.removeRoutingControl();
     }
@@ -53,16 +53,25 @@ export class RouteController {
     }
   }
 
-  async calculateRoute(points = []) {
-    const waypoints = points.map(coord => {
+  getWaypoints(points = []) {
+    return points.map(coord => {
       return L.latLng(coord[0], coord[1])
     });
+  }
+
+  async calculateRoute(points = []) {
+    const waypoints = this.getWaypoints();
 
     if (waypoints.length === 0) {
       return;
     }
 
     this.addRoutingControl(waypoints);
+  }
+
+  async calculateMultiRoutes(points = []) {
+    const waypoints = this.getWaypoints(points);
+    await this.addMultiRoutingControl(waypoints);
   }
 
   async zoomToCenter(map, state) {
