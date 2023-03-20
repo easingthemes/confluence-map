@@ -12,11 +12,11 @@ export class RouteController {
     this.removeRoutingControl();
     this.removeMultiRoutingControl();
 
-    this.routingControl = L.Routing.control({
+    this.routingControl = this.NS.L.Routing.control({
       waypoints,
       routeWhileDragging: true
     }).addTo(this.NS.map);
-    L.Routing.Itinerary.hide();
+    this.NS.L.Routing.Itinerary.hide();
   }
 
   async addMultiRoutingControl(waypoints) {
@@ -33,7 +33,7 @@ export class RouteController {
   }
 
   addMultiRoutingControlPart(waypoints, i = 0) {
-    this.multiRoutingControl[i] = L.Routing.control({
+    this.multiRoutingControl[i] = this.NS.L.Routing.control({
       waypoints,
       routeWhileDragging: true
     }).addTo(this.NS.map);
@@ -59,7 +59,7 @@ export class RouteController {
 
   getWaypoints(points = []) {
     return points.map(coord => {
-      return L.latLng(coord[0], coord[1])
+      return this.NS.L.latLng(coord[0], coord[1])
     });
   }
 

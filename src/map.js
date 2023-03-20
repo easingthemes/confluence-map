@@ -1,17 +1,12 @@
 import { config } from './config.js';
 
 export class LeafletMap {
-  constructor() {
-    this.NS = this.bindNamespace();
-  }
-
-  bindNamespace() {
-    window.NC_CONFLUENCE_MAP = window.NC_CONFLUENCE_MAP || {};
-    return window.NC_CONFLUENCE_MAP;
+  constructor($map, NS) {
+    this.NS = NS;
+    this.init($map);
   }
 
   init($map) {
-    this.NS.L = window.L;
     this.NS.map = this.initMap($map, this.NS.config.initialCenter, this.NS.config.defaultZoom);
     this.addTiles(this.NS.map);
     this.addMarkers(this.NS.map, this.NS.state);
