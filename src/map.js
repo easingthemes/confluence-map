@@ -14,7 +14,8 @@ export class LeafletMap {
     this.NS.L = window.L;
     this.NS.map = this.initMap($map, this.NS.config.initialCenter, this.NS.config.defaultZoom);
     this.addTiles(this.NS.map);
-    this.addMarkers(this.NS.map, this.NS.state)
+    this.addMarkers(this.NS.map, this.NS.state);
+    this.zoomToCenter(this.NS.map, this.NS.state);
   }
 
   initMap($el, center, zoom) {
@@ -22,6 +23,12 @@ export class LeafletMap {
       center,
       zoom
     });
+  }
+
+  zoomToCenter(map, state) {
+    const points = Object.values(state).map(({ location }) => location);
+    const bounds = new this.NS.L.LatLngBounds(points);
+    map.fitBounds(bounds);
   }
 
   addTiles(map) {
