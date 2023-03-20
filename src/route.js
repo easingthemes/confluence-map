@@ -21,10 +21,11 @@ export class RouteController {
     }
 
     this.multiRoutingControl = this.multiRoutingControl || {};
-    const center = await this.getCenter();
-    console.log({ center, waypoints });
+    const center = this.getCenter();
+    const centerPoint = NS.L.latLng(center[0], center[1]);
+    console.log({ centerPoint, waypoints });
     waypoints.forEach((point, i) => {
-      this.addMultiRoutingControlPart([center, point], i);
+      this.addMultiRoutingControlPart([centerPoint, point], i);
     });
   }
 
@@ -70,6 +71,7 @@ export class RouteController {
   }
 
   async calculateMultiRoutes(points = []) {
+    await this.zoomToCenter();
     const waypoints = this.getWaypoints(points);
     await this.addMultiRoutingControl(waypoints);
   }
@@ -84,8 +86,11 @@ export class RouteController {
     return this.__sleep(300);
   }
 
-  async getCenter() {
-    await this.zoomToCenter();
-    return NS.map.getCenter();
+  getCenter() {
+    const list = Object.values(NS.state)
+      .map(({ location }) => location.map(l => Number(l)));
+    return list.reduce((acc, curr) => {
+      return [(acc[0] + curr[0])/2, (acc[1] + curr[1])/2]
+    }, [0, 0]);
   }
 }
