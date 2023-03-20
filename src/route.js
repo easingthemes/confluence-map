@@ -25,6 +25,7 @@ export class RouteController {
 
     this.multiRoutingControl = this.multiRoutingControl || {};
     const center = await this.getCenter();
+    console.log({ center, waypoints });
     waypoints.forEach((point, i) => {
       this.addMultiRoutingControlPart([center, point], i);
     });
