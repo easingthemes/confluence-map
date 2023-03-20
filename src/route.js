@@ -51,6 +51,8 @@ export class RouteController {
       this.NS.map.removeControl(this.routingControl);
       this.routingControl = null;
     }
+
+    this.removeMultiRoutingControl();
   }
 
   getWaypoints(points = []) {
@@ -60,7 +62,7 @@ export class RouteController {
   }
 
   async calculateRoute(points = []) {
-    const waypoints = this.getWaypoints();
+    const waypoints = this.getWaypoints(points);
 
     if (waypoints.length === 0) {
       return;
