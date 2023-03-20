@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/easingthemes/confluence-map/compare/v1.2.3...v1.2.4) (2023-03-20)
+
+
+### Bug Fixes
+
+* hide details ([6344987](https://github.com/easingthemes/confluence-map/commit/63449875cfa081ab81bf8e78404e84ef74654b6b))
+
 ## [1.2.3](https://github.com/easingthemes/confluence-map/compare/v1.2.2...v1.2.3) (2023-03-20)
 
 
