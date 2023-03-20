@@ -1,3 +1,10 @@
+## [1.2.10](https://github.com/easingthemes/confluence-map/compare/v1.2.9...v1.2.10) (2023-03-20)
+
+
+### Bug Fixes
+
+* await center ([1fd14e4](https://github.com/easingthemes/confluence-map/commit/1fd14e42a181be3b011e48d683379d690908414f))
+
 ## [1.2.9](https://github.com/easingthemes/confluence-map/compare/v1.2.8...v1.2.9) (2023-03-20)
 
 
