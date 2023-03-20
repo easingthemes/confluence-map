@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/easingthemes/confluence-map/compare/v1.0.3...v1.1.0) (2023-03-20)
+
+
+### Features
+
+* add zoom to center of locations ([2250113](https://github.com/easingthemes/confluence-map/commit/225011329dfe5d9c6cb5a0ef84413ca872f50f6d))
+
 ## [1.0.3](https://github.com/easingthemes/confluence-map/compare/v1.0.2...v1.0.3) (2023-03-17)
 
 
