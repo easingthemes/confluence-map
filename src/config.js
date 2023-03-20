@@ -13,6 +13,7 @@ export const config = {
   CONFIG_ROWS: '.table-wrap:nth-of-type(2) > table > tbody tr',
   labels: {
     CLEAR_ROUTE: 'Clear Route',
-    CALCULATE_ROUTE: 'Calculate Route'
+    CALCULATE_ROUTE: 'Calculate Route',
+    CENTER_ROUTE: 'Calculate center',
   }
 };
