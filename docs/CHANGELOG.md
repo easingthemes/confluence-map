@@ -1,3 +1,11 @@
+## [1.2.5](https://github.com/easingthemes/confluence-map/compare/v1.2.4...v1.2.5) (2023-03-20)
+
+
+### Bug Fixes
+
+* add global state ([6b8376a](https://github.com/easingthemes/confluence-map/commit/6b8376afebbcaec8bc4fd8af64c721eb99c09fa7))
+* use global state ([8e748ad](https://github.com/easingthemes/confluence-map/commit/8e748ad9734a39023c872694e7837c59cf1daa75))
+
 ## [1.2.4](https://github.com/easingthemes/confluence-map/compare/v1.2.3...v1.2.4) (2023-03-20)
 
 
