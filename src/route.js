@@ -16,6 +16,7 @@ export class RouteController {
       waypoints,
       routeWhileDragging: true
     }).addTo(this.NS.map);
+    L.Routing.Itinerary.hide();
   }
 
   async addMultiRoutingControl(waypoints) {
@@ -39,7 +40,7 @@ export class RouteController {
   }
 
   removeMultiRoutingControl() {
-    if (this.multiRoutingControl !== null) {
+    if (this.multiRoutingControl) {
       Object.values(this.multiRoutingControl).map(control => {
         this.NS.map.removeControl(control);
       })
@@ -48,7 +49,7 @@ export class RouteController {
   }
 
   removeRoutingControl() {
-    if (this.routingControl !== null) {
+    if (this.routingControl) {
       this.NS.map.removeControl(this.routingControl);
       this.routingControl = null;
     }
