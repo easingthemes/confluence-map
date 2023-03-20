@@ -31,6 +31,9 @@ export class MapElement extends HTMLElement {
         max-width: 100%;
         max-height: 100%;
     }
+    .leaflet-routing-alternatives-container table {
+        display: none;
+    }
     </style>
     `);
     this.shadowRoot.appendChild(this.renderElements());
