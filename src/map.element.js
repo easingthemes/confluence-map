@@ -1,7 +1,7 @@
 import { LeafletMap } from './map.js';
 import { Dependencies } from './dependencies.js';
 import { renderStyle } from './style.js';
-import { NameSpace } from './ns.js';
+import { NS } from './ns.js';
 
 export class MapElement extends HTMLElement {
   constructor() {
@@ -40,11 +40,10 @@ export class MapElement extends HTMLElement {
     const $map = this.shadowRoot.querySelector('#map');
     const dependencies = new Dependencies(this.shadowRoot);
     dependencies.load().then((data) => {
-      // NS init
-      const NS = new NameSpace('NC_CONFLUENCE_MAP');
+      // add plugin
       NS.L = window.L;
       // Map init
-      const leafletMap = new LeafletMap($map, NS);
+      NS.map = new LeafletMap($map, NS);
     });
   }
 

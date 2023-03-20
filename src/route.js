@@ -1,22 +1,19 @@
+import { NS } from './ns.js';
+
 export class RouteController {
   constructor() {
     this.routingControl = null;
-    this.NS = this.bindNamespace();
-  }
-
-  bindNamespace() {
-    window.NC_CONFLUENCE_MAP = window.NC_CONFLUENCE_MAP || {};
-    return window.NC_CONFLUENCE_MAP;
+    this.NS = NS;
   }
   addRoutingControl(waypoints) {
     this.removeRoutingControl();
     this.removeMultiRoutingControl();
 
-    this.routingControl = this.NS.L.Routing.control({
+    this.routingControl = NS.L.Routing.control({
       waypoints,
       routeWhileDragging: true
-    }).addTo(this.NS.map);
-    this.NS.L.Routing.Itinerary.hide();
+    }).addTo(NS.map);
+    NS.L.Routing.Itinerary.hide();
   }
 
   async addMultiRoutingControl(waypoints) {
@@ -33,16 +30,16 @@ export class RouteController {
   }
 
   addMultiRoutingControlPart(waypoints, i = 0) {
-    this.multiRoutingControl[i] = this.NS.L.Routing.control({
+    this.multiRoutingControl[i] = NS.L.Routing.control({
       waypoints,
       routeWhileDragging: true
-    }).addTo(this.NS.map);
+    }).addTo(NS.map);
   }
 
   removeMultiRoutingControl() {
     if (this.multiRoutingControl) {
       Object.values(this.multiRoutingControl).map(control => {
-        this.NS.map.removeControl(control);
+        NS.map.removeControl(control);
       })
       this.multiRoutingControl = null;
     }
@@ -50,7 +47,7 @@ export class RouteController {
 
   removeRoutingControl() {
     if (this.routingControl) {
-      this.NS.map.removeControl(this.routingControl);
+      NS.map.removeControl(this.routingControl);
       this.routingControl = null;
     }
 
@@ -59,7 +56,7 @@ export class RouteController {
 
   getWaypoints(points = []) {
     return points.map(coord => {
-      return this.NS.L.latLng(coord[0], coord[1])
+      return NS.L.latLng(coord[0], coord[1])
     });
   }
 
@@ -78,14 +75,14 @@ export class RouteController {
     await this.addMultiRoutingControl(waypoints);
   }
 
-  async zoomToCenter(map, state) {
-    const points = Object.values(state).map(({ location }) => location);
-    const bounds = new this.NS.L.LatLngBounds(points);
-    await map.fitBounds(bounds);
+  async zoomToCenter() {
+    const points = Object.values(NS.state).map(({ location }) => location);
+    const bounds = new NS.L.LatLngBounds(points);
+    await NS.map.fitBounds(bounds);
   }
 
   async getCenter() {
-    await this.zoomToCenter(this.NS.map, this.NS.state);
-    return this.NS.map.getCenter();
+    await this.zoomToCenter();
+    return NS.map.getCenter();
   }
 }

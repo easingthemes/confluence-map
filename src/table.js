@@ -8,13 +8,6 @@ export class ConfigTable {
     this.options = {
       decimals
     }
-    this._state = {};
-    this.NS = this.bindNamespace();
-  }
-
-  bindNamespace() {
-    window.NC_CONFLUENCE_MAP = window.NC_CONFLUENCE_MAP || {};
-    return window.NC_CONFLUENCE_MAP;
   }
 
   init() {
@@ -23,8 +16,7 @@ export class ConfigTable {
     this.setInitialData();
     this.addEvents();
 
-    this.NS.state = this.state;
-    this.NS.config = this.config;
+    NS.config = this.config;
 
     renderStyle(document.head, `
     <style>
@@ -35,18 +27,6 @@ export class ConfigTable {
         cursor: pointer;
     }
     `);
-  }
-
-  get state() {
-    return this._state;
-  }
-
-  updateState(key, data, field) {
-    if (field) {
-      this._state[key][field] = data;
-    } else {
-      this._state[key] = data;
-    }
   }
 
   getElements() {
@@ -64,7 +44,7 @@ export class ConfigTable {
       .map(i => Number.parseFloat(i.trim()).toFixed(this.options.decimals));
 
     $configRow.addEventListener('click', () => {
-      this.NS.map.setView(initialCenter, defaultZoom);
+      NS.map.setView(initialCenter, defaultZoom);
     });
 
     return {
@@ -116,7 +96,10 @@ export class ConfigTable {
   setInitialData() {
     this.tableData.map(({ $point, label, location }) => {
       const { id, active } = this.getPointData($point);
-      this.updateState(id, { label, location, active });
+      NS.state = ({
+        id,
+        data: { label, location, active }
+      });
     });
   }
 
@@ -131,11 +114,15 @@ export class ConfigTable {
     this.tableData.map(({ $colLabel, $point, location }) => {
       $point.addEventListener('click', () => {
         const { id, active } = this.getPointData($point);
-        this.updateState(id, active, 'active');
+        NS.state = ({
+          id,
+          data: active,
+          filed: 'active'
+        });
       });
 
       $colLabel.addEventListener('click', () => {
-        this.NS.map.setView(location, this.config.locationZoom);
+        NS.map.setView(location, this.config.locationZoom);
       });
     });
   }
