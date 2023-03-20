@@ -1,5 +1,6 @@
 import { renderStyle } from './style.js';
 import { config } from './config.js';
+import { NS } from './ns.js';
 
 export class ConfigTable {
   constructor({
