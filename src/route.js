@@ -89,8 +89,9 @@ export class RouteController {
   getCenter() {
     const list = Object.values(NS.state)
       .map(({ location }) => location.map(l => Number(l)));
+    const size = list.length;
     return list.reduce((acc, curr) => {
-      return [(acc[0] + curr[0])/2, (acc[1] + curr[1])/2]
+      return [(acc[0] + curr[0])/size, (acc[1] + curr[1])/size]
     }, [0, 0]);
   }
 }
