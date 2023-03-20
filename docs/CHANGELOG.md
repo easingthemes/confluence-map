@@ -1,3 +1,10 @@
+## [1.2.9](https://github.com/easingthemes/confluence-map/compare/v1.2.8...v1.2.9) (2023-03-20)
+
+
+### Bug Fixes
+
+* points event ([6949d9b](https://github.com/easingthemes/confluence-map/commit/6949d9bc919296a7392fd0bb8b23c18ccadb7f95))
+
 ## [1.2.8](https://github.com/easingthemes/confluence-map/compare/v1.2.7...v1.2.8) (2023-03-20)
 
 
