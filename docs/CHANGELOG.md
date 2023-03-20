@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/easingthemes/confluence-map/compare/v1.2.2...v1.2.3) (2023-03-20)
+
+
+### Bug Fixes
+
+* log center ([c17707c](https://github.com/easingthemes/confluence-map/commit/c17707ca185f14d9bbed3e41e1e1de18d7ea3847))
+
 ## [1.2.2](https://github.com/easingthemes/confluence-map/compare/v1.2.1...v1.2.2) (2023-03-20)
 
 
