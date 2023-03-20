@@ -81,7 +81,7 @@ export class RouteController {
   }
 
   async zoomToCenter() {
-    const points = Object.values(NS.cen).map(({ location }) => location);
+    const points = Object.values(NS.state).map(({ location }) => location);
     await NS.map.fitBounds(points);
     return this.__sleep(300);
   }
