@@ -99,7 +99,9 @@ export class ConfigTable {
       const { id, active } = this.getPointData($point);
       NS.state = ({
         id,
-        data: { label, location, active }
+        label,
+        location,
+        active
       });
     });
   }
@@ -112,13 +114,14 @@ export class ConfigTable {
   }
 
   addEvents() {
-    this.tableData.map(({ $colLabel, $point, location }) => {
+    this.tableData.map(({ $colLabel, $point, label, location }) => {
       $point.addEventListener('click', () => {
         const { id, active } = this.getPointData($point);
         NS.state = ({
           id,
-          data: active,
-          filed: 'active'
+          label,
+          location,
+          active
         });
       });
 
