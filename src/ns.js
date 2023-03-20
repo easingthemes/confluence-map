@@ -15,13 +15,9 @@ class NameSpace {
   get state() {
     return this._state;
   }
-  set state({ id, data, field }) {
+  set state({ id, label, location, active }) {
     this._state[id] = this._state[id] || {}
-    if (field) {
-      this._state[id][field] = data;
-    } else {
-      this._state[id] = data;
-    }
+    this._state[id] = { label, location, active };
   }
 }
 

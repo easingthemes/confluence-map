@@ -13,7 +13,6 @@ export class RouteController {
       waypoints,
       routeWhileDragging: true
     }).addTo(NS.map);
-    NS.L.Routing.Itinerary.hide();
   }
 
   async addMultiRoutingControl(waypoints) {
