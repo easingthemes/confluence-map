@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/easingthemes/confluence-map/compare/v1.2.0...v1.2.1) (2023-03-20)
+
+
+### Bug Fixes
+
+* multipoints route fix ([6ebb72d](https://github.com/easingthemes/confluence-map/commit/6ebb72dd7d3297d978948b64a82104c835dd4251))
+
 # [1.2.0](https://github.com/easingthemes/confluence-map/compare/v1.1.0...v1.2.0) (2023-03-20)
 
 
