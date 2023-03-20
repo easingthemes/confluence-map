@@ -2,29 +2,25 @@ class NameSpace {
   constructor(name) {
     this._state = {};
     this._config = {};
-    const NS = window[name] || this.public();
-    window[name] = NS;
-    return NS;
+    window[name] = window[name] || this;
+    return window[name];
   }
 
-  public() {
-    return {
-      get config() {
-        return this._config;
-      },
-      set config(conf) {
-        this._config = conf;
-      },
-      get state() {
-        return this._state;
-      },
-      set state({ id, data, field }) {
-        if (field) {
-          this._state[id][field] = data;
-        } else {
-          this._state[id] = data;
-        }
-      }
+  get config() {
+    return this._config;
+  }
+  set config(conf) {
+    this._config = conf;
+  }
+  get state() {
+    return this._state;
+  }
+  set state({ id, data, field }) {
+    this._state[id] = this._state[id] || {}
+    if (field) {
+      this._state[id][field] = data;
+    } else {
+      this._state[id] = data;
     }
   }
 }
