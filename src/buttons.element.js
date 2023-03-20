@@ -46,6 +46,7 @@ export class RouteButtons extends HTMLElement {
     `);
     this.shadowRoot.appendChild(this.renderButton('calculate'));
     this.shadowRoot.appendChild(this.renderButton('clear'));
+    this.shadowRoot.appendChild(this.renderButton('center'));
   }
 
   renderButton(type) {
@@ -61,7 +62,8 @@ export class RouteButtons extends HTMLElement {
   get routeActions() {
     return {
       calculate: () => this.RouteController.calculateRoute(this.points),
-      clear: () => this.RouteController.removeRoutingControl()
+      clear: () => this.RouteController.removeRoutingControl(),
+      center: () => this.RouteController.addMultiRoutingControl(this.points)
     }
   }
 }
