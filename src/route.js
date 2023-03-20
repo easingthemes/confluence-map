@@ -74,10 +74,14 @@ export class RouteController {
     await this.addMultiRoutingControl(waypoints);
   }
 
+  __sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   async zoomToCenter() {
     const points = Object.values(NS.state).map(({ location }) => location);
-    const bounds = new NS.L.LatLngBounds(points);
-    await NS.map.fitBounds(bounds);
+    await NS.map.fitBounds(points);
+    return this.__sleep(300);
   }
 
   async getCenter() {

@@ -124,7 +124,9 @@ export class ConfigTable {
       }
     });
   }
+
   addEvents() {
+    this.handleMutations  = this.handleMutations.bind(this);
     const observer = new MutationObserver(this.handleMutations);
     this.tableData.map(({ $colLabel, $point, label, location }) => {
       observer.observe($point, {
