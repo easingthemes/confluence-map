@@ -1,22 +1,17 @@
 import { RouteController } from './route.js';
 import { renderStyle } from './style.js';
 import { config } from './config.js';
+import { NS } from './ns.js';
 
 export class RouteButtons extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.NS = this.bindNamespace();
     this.RouteController = new RouteController();
   }
 
-  bindNamespace() {
-    window.NC_CONFLUENCE_MAP = window.NC_CONFLUENCE_MAP || {};
-    return window.NC_CONFLUENCE_MAP;
-  }
-
   get points() {
-    return Object.values(this.NS.state)
+    return Object.values(NS.state)
       .filter(item => item.active)
       .map(item => item?.location);
   }
