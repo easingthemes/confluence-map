@@ -1,6 +1,6 @@
 {
   "name": "@draganfilipovic/confluence-map",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "embed OSM into Confluence pages",
   "license": "Apache-2.0",
   "private": false,
