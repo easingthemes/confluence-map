@@ -91,7 +91,7 @@ export class RouteController {
       .map(({ location }) => location.map(l => Number(l)));
     const size = list.length;
     return list.reduce((acc, curr) => {
-      return [(acc[0] + curr[0])/size, (acc[1] + curr[1])/size]
+      return [acc[0] + curr[0]/size, acc[1] + curr[1]/size]
     }, [0, 0]);
   }
 }
