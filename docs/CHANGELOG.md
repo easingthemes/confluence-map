@@ -1,3 +1,10 @@
+## [1.2.11](https://github.com/easingthemes/confluence-map/compare/v1.2.10...v1.2.11) (2023-03-20)
+
+
+### Bug Fixes
+
+* get center manually ([a022f95](https://github.com/easingthemes/confluence-map/commit/a022f95a1f5dfd38a1d6885c25e6539c3ab2ac49))
+
 ## [1.2.10](https://github.com/easingthemes/confluence-map/compare/v1.2.9...v1.2.10) (2023-03-20)
 
 
