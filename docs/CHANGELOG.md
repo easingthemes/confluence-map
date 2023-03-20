@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/easingthemes/confluence-map/compare/v1.1.0...v1.2.0) (2023-03-20)
+
+
+### Features
+
+* add route center ([a7dc1a0](https://github.com/easingthemes/confluence-map/commit/a7dc1a00c271b1586a94b67e167504d0ac8043a3))
+
 # [1.1.0](https://github.com/easingthemes/confluence-map/compare/v1.0.3...v1.1.0) (2023-03-20)
 
 
